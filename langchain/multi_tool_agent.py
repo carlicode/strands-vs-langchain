@@ -2,11 +2,15 @@
 LangChain — multi-tool example (weather + currency conversion).
 Same task as the Strands version, showing the extra scaffolding
 (prompt template, scratchpad, executor) LangChain expects you to define.
+Requires OPENAI_API_KEY in your environment or a .env file (see .env.example).
 """
+from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain.agents import create_tool_calling_agent, AgentExecutor
 from langchain_core.tools import tool
 from langchain_core.prompts import ChatPromptTemplate
+
+load_dotenv()
 
 
 @tool

@@ -1,0 +1,59 @@
+<svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <rect width="1000" height="1000" fill="#FFFFFF"/>
+  <text x="500" y="50" text-anchor="middle" font-size="26" font-weight="700" fill="#111827">Which one should you reach for?</text>
+
+  <!-- Q1 -->
+  <polygon points="500,80 660,160 500,240 340,160" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="2"/>
+  <text x="500" y="150" text-anchor="middle" font-size="15" font-weight="600" fill="#1F2937">Need multi-cloud / multi-model</text>
+  <text x="500" y="170" text-anchor="middle" font-size="15" font-weight="600" fill="#1F2937">flexibility (on-prem, hybrid)?</text>
+
+  <line x1="660" y1="160" x2="800" y2="160" stroke="#4B5563" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="730" y="148" text-anchor="middle" font-size="14" fill="#4B5563">yes</text>
+  <rect x="800" y="128" width="160" height="64" rx="12" fill="#EEF0FF" stroke="#4F46E5" stroke-width="2.5"/>
+  <text x="880" y="164" text-anchor="middle" font-size="16" font-weight="700" fill="#3730A3">LangChain</text>
+
+  <line x1="500" y1="240" x2="500" y2="300" stroke="#4B5563" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="522" y="275" font-size="14" fill="#4B5563">no</text>
+
+  <!-- Q2 -->
+  <polygon points="500,300 660,380 500,460 340,380" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="2"/>
+  <text x="500" y="370" text-anchor="middle" font-size="15" font-weight="600" fill="#1F2937">Building on AWS and want</text>
+  <text x="500" y="390" text-anchor="middle" font-size="15" font-weight="600" fill="#1F2937">Bedrock + IAM wired in?</text>
+
+  <line x1="340" y1="380" x2="200" y2="380" stroke="#4B5563" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="270" y="368" text-anchor="middle" font-size="14" fill="#4B5563">no</text>
+  <rect x="40" y="348" width="160" height="64" rx="12" fill="#EEF0FF" stroke="#4F46E5" stroke-width="2.5"/>
+  <text x="120" y="376" text-anchor="middle" font-size="16" font-weight="700" fill="#3730A3">LangChain</text>
+  <text x="120" y="396" text-anchor="middle" font-size="12" fill="#4338CA">self-managed stack</text>
+
+  <line x1="500" y1="460" x2="500" y2="520" stroke="#4B5563" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="522" y="495" font-size="14" fill="#4B5563">yes</text>
+
+  <!-- Q3 -->
+  <polygon points="500,520 660,600 500,680 340,600" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="2"/>
+  <text x="500" y="590" text-anchor="middle" font-size="15" font-weight="600" fill="#1F2937">Need to hand-draw complex,</text>
+  <text x="500" y="610" text-anchor="middle" font-size="15" font-weight="600" fill="#1F2937">conditional control flow?</text>
+
+  <line x1="660" y1="600" x2="800" y2="600" stroke="#4B5563" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="730" y="588" text-anchor="middle" font-size="14" fill="#4B5563">yes</text>
+  <rect x="800" y="568" width="160" height="64" rx="12" fill="#EEF0FF" stroke="#4F46E5" stroke-width="2.5"/>
+  <text x="880" y="596" text-anchor="middle" font-size="16" font-weight="700" fill="#3730A3">LangChain</text>
+  <text x="880" y="616" text-anchor="middle" font-size="12" fill="#4338CA">LangGraph</text>
+
+  <line x1="500" y1="680" x2="500" y2="740" stroke="#4B5563" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="522" y="715" font-size="14" fill="#4B5563">no</text>
+
+  <rect x="380" y="740" width="240" height="76" rx="14" fill="#FFF3E0" stroke="#FF9900" stroke-width="3"/>
+  <text x="500" y="778" text-anchor="middle" font-size="19" font-weight="700" fill="#7C4A03">Strands Agents</text>
+  <text x="500" y="800" text-anchor="middle" font-size="13" fill="#7C4A03">let the model own the loop</text>
+
+  <rect x="60" y="880" width="880" height="90" rx="14" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="1.5"/>
+  <text x="500" y="915" text-anchor="middle" font-size="14" fill="#374151">Not mutually exclusive — nothing stops you from using a LangChain tool</text>
+  <text x="500" y="936" text-anchor="middle" font-size="14" fill="#374151">definition inside a Strands agent, or vice versa, mid-migration.</text>
+
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#4B5563"/>
+    </marker>
+  </defs>
+</svg>

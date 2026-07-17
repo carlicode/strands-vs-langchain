@@ -1,11 +1,15 @@
 """
 Minimal LangChain example — weather tool.
-Install: pip install langchain langchain-openai
+Install: pip install langchain langchain-openai python-dotenv
+Requires OPENAI_API_KEY in your environment or a .env file (see .env.example).
 """
+from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain.agents import create_tool_calling_agent, AgentExecutor
 from langchain_core.tools import tool
 from langchain_core.prompts import ChatPromptTemplate
+
+load_dotenv()
 
 
 @tool

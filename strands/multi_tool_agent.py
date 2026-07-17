@@ -2,8 +2,13 @@
 Strands Agents — multi-tool example (weather + currency conversion).
 Shows how the model decides, on its own, which tool(s) to call and in
 what order, with no graph defined by the developer.
+Uses your default AWS credential chain (aws configure / SSO) to call Bedrock.
+Optional: set AWS_PROFILE or AWS_REGION in a .env file (see .env.example).
 """
+from dotenv import load_dotenv
 from strands import Agent, tool
+
+load_dotenv()
 
 
 @tool
@@ -25,8 +30,8 @@ def convert_currency(amount: float, from_currency: str, to_currency: str) -> str
 agent = Agent(tools=[get_weather, convert_currency])
 
 if __name__ == "__main__":
-    response = agent(
+    # agent() already streams the response to stdout as it's generated
+    agent(
         "I'm traveling to Santa Cruz with 100 USD. "
         "What's the weather like and how much is that in BOB?"
     )
-    print(response)

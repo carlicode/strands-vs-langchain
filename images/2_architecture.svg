@@ -1,0 +1,78 @@
+<svg viewBox="0 0 1400 760" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <rect width="1400" height="760" fill="#FFFFFF"/>
+
+  <!-- Panel backgrounds -->
+  <rect x="40" y="30" width="640" height="700" rx="16" fill="#F5F5FF" stroke="#C7C9F5" stroke-width="2"/>
+  <rect x="720" y="30" width="640" height="700" rx="16" fill="#FFF8EE" stroke="#F5CE95" stroke-width="2"/>
+
+  <text x="360" y="80" text-anchor="middle" font-size="26" font-weight="700" fill="#3730A3">LangChain / LangGraph</text>
+  <text x="360" y="110" text-anchor="middle" font-size="17" fill="#4B5563">You define the control flow</text>
+
+  <text x="1040" y="80" text-anchor="middle" font-size="26" font-weight="700" fill="#232F3E">Strands Agents</text>
+  <text x="1040" y="110" text-anchor="middle" font-size="17" fill="#4B5563">The model owns the loop</text>
+
+  <!-- LEFT: explicit graph -->
+  <g font-size="15" font-weight="600">
+    <circle cx="360" cy="170" r="34" fill="#4F46E5"/>
+    <text x="360" y="176" text-anchor="middle" fill="#fff">Start</text>
+
+    <line x1="360" y1="204" x2="360" y2="250" stroke="#818CF8" stroke-width="3"/>
+    <rect x="290" y="250" width="140" height="52" rx="10" fill="#EEF0FF" stroke="#4F46E5" stroke-width="2"/>
+    <text x="360" y="281" text-anchor="middle" fill="#3730A3">Call Tool A</text>
+
+    <line x1="360" y1="302" x2="360" y2="348" stroke="#818CF8" stroke-width="3"/>
+    <polygon points="360,348 420,392 360,436 300,392" fill="#FDE68A" stroke="#B45309" stroke-width="2"/>
+    <text x="360" y="397" text-anchor="middle" font-size="13" fill="#78350F">Condition?</text>
+
+    <line x1="300" y1="392" x2="255" y2="392" stroke="#B45309" stroke-width="3"/>
+    <text x="277" y="382" text-anchor="middle" font-size="12" fill="#78350F">no</text>
+    <rect x="120" y="366" width="130" height="52" rx="10" fill="#EEF0FF" stroke="#4F46E5" stroke-width="2"/>
+    <text x="185" y="397" text-anchor="middle" fill="#3730A3">Fallback node</text>
+
+    <line x1="420" y1="392" x2="520" y2="392" stroke="#B45309" stroke-width="3"/>
+    <text x="472" y="382" text-anchor="middle" font-size="12" fill="#78350F">yes</text>
+    <rect x="500" y="366" width="130" height="52" rx="10" fill="#EEF0FF" stroke="#4F46E5" stroke-width="2"/>
+    <text x="565" y="397" text-anchor="middle" fill="#3730A3">Call Tool B</text>
+
+    <line x1="360" y1="436" x2="360" y2="480" stroke="#818CF8" stroke-width="3"/>
+    <line x1="185" y1="418" x2="185" y2="600" stroke="#818CF8" stroke-width="3"/>
+    <line x1="185" y1="600" x2="360" y2="600" stroke="#818CF8" stroke-width="3"/>
+    <line x1="565" y1="418" x2="565" y2="600" stroke="#818CF8" stroke-width="3"/>
+    <line x1="565" y1="600" x2="360" y2="600" stroke="#818CF8" stroke-width="3"/>
+
+    <circle cx="360" cy="630" r="34" fill="#111827"/>
+    <text x="360" y="636" text-anchor="middle" fill="#fff">End</text>
+  </g>
+  <text x="360" y="695" text-anchor="middle" font-size="14" fill="#6B7280">Every branch is drawn and versioned by you</text>
+
+  <!-- RIGHT: model-driven loop -->
+  <g font-size="16" font-weight="600">
+    <circle cx="1040" cy="250" r="70" fill="#232F3E"/>
+    <text x="1040" y="245" text-anchor="middle" fill="#FF9900" font-size="18">Model</text>
+    <text x="1040" y="266" text-anchor="middle" fill="#fff" font-size="12" font-weight="400">decides what's next</text>
+
+    <path d="M 1105,210 A 160,160 0 0 1 1180,400" fill="none" stroke="#FF9900" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="1130" y="410" width="160" height="52" rx="10" fill="#FFF3E0" stroke="#FF9900" stroke-width="2"/>
+    <text x="1210" y="441" text-anchor="middle" fill="#7C4A03">Execute tool</text>
+
+    <path d="M 1130,462 A 160,160 0 0 1 975,500" fill="none" stroke="#FF9900" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="800" y="474" width="175" height="52" rx="10" fill="#FFF3E0" stroke="#FF9900" stroke-width="2"/>
+    <text x="887" y="505" text-anchor="middle" fill="#7C4A03">Feed result back</text>
+
+    <path d="M 890,474 A 160,160 0 0 1 975,290" fill="none" stroke="#FF9900" stroke-width="3" marker-end="url(#arrow)"/>
+
+    <circle cx="1040" cy="600" r="30" fill="#111827"/>
+    <text x="1040" y="606" text-anchor="middle" fill="#fff" font-size="14">Done</text>
+    <path d="M 1010,235 A 90,90 0 0 0 1040,570" fill="none" stroke="#232F3E" stroke-width="2.5" stroke-dasharray="4 4" marker-end="url(#arrowdark)"/>
+  </g>
+  <text x="1040" y="695" text-anchor="middle" font-size="14" fill="#6B7280">No graph to draw — the model calls the shots each turn</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#FF9900"/>
+    </marker>
+    <marker id="arrowdark" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#232F3E"/>
+    </marker>
+  </defs>
+</svg>

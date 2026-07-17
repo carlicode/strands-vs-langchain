@@ -1,8 +1,13 @@
 """
 Minimal Strands Agents example — weather tool.
-Install: pip install strands-agents
+Install: pip install strands-agents python-dotenv
+Uses your default AWS credential chain (aws configure / SSO) to call Bedrock.
+Optional: set AWS_PROFILE or AWS_REGION in a .env file (see .env.example).
 """
+from dotenv import load_dotenv
 from strands import Agent, tool
+
+load_dotenv()
 
 
 @tool
@@ -14,5 +19,5 @@ def get_weather(city: str) -> str:
 agent = Agent(tools=[get_weather])
 
 if __name__ == "__main__":
-    response = agent("What's the weather in Santa Cruz?")
-    print(response)
+    # agent() already streams the response to stdout as it's generated
+    agent("What's the weather in Santa Cruz?")

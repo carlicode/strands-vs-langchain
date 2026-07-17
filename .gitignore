@@ -5,3 +5,11 @@ venv/
 .env
 .DS_Store
 *.egg-info/
+
+# loose image copies staged at repo root for manual upload elsewhere —
+# the ones the article/README actually reference live in images/
+/1_cover.png
+/2_architecture.png
+/3_terminal.png
+/4_deployment.png
+/5_decision_tree.png

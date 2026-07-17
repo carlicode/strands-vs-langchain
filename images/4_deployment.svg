@@ -1,0 +1,84 @@
+<svg viewBox="0 0 1400 720" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <rect width="1400" height="720" fill="#FFFFFF"/>
+
+  <text x="1040" y="60" text-anchor="middle" font-size="26" font-weight="700" fill="#232F3E">Strands Agents</text>
+  <text x="1040" y="88" text-anchor="middle" font-size="16" fill="#4B5563">Deploys straight into a pre-wired runtime</text>
+
+  <text x="360" y="60" text-anchor="middle" font-size="26" font-weight="700" fill="#3730A3">LangChain</text>
+  <text x="360" y="88" text-anchor="middle" font-size="16" fill="#4B5563">You assemble the stack yourself</text>
+
+  <!-- RIGHT: Strands -> Bedrock AgentCore -->
+  <rect x="960" y="140" width="160" height="70" rx="12" fill="#232F3E"/>
+  <text x="1040" y="182" text-anchor="middle" fill="#FF9900" font-size="18" font-weight="700">Strands Agent</text>
+
+  <line x1="1040" y1="210" x2="1040" y2="250" stroke="#FF9900" stroke-width="3" marker-end="url(#arrowO)"/>
+
+  <rect x="850" y="252" width="380" height="290" rx="16" fill="#FFF3E0" stroke="#FF9900" stroke-width="2.5"/>
+  <text x="1040" y="288" text-anchor="middle" font-size="19" font-weight="700" fill="#7C4A03">Amazon Bedrock AgentCore</text>
+
+  <g font-size="15" font-weight="600" fill="#7C4A03">
+    <rect x="880" y="310" width="150" height="56" rx="10" fill="#FFFFFF" stroke="#FF9900" stroke-width="2"/>
+    <text x="955" y="335" text-anchor="middle">Identity</text>
+    <text x="955" y="353" text-anchor="middle" font-size="12" font-weight="400">IAM per tool</text>
+
+    <rect x="1050" y="310" width="150" height="56" rx="10" fill="#FFFFFF" stroke="#FF9900" stroke-width="2"/>
+    <text x="1125" y="335" text-anchor="middle">Memory</text>
+    <text x="1125" y="353" text-anchor="middle" font-size="12" font-weight="400">session state</text>
+
+    <rect x="880" y="382" width="150" height="56" rx="10" fill="#FFFFFF" stroke="#FF9900" stroke-width="2"/>
+    <text x="955" y="407" text-anchor="middle">Runtime</text>
+    <text x="955" y="425" text-anchor="middle" font-size="12" font-weight="400">managed hosting</text>
+
+    <rect x="1050" y="382" width="150" height="56" rx="10" fill="#FFFFFF" stroke="#FF9900" stroke-width="2"/>
+    <text x="1125" y="407" text-anchor="middle">Observability</text>
+    <text x="1125" y="425" text-anchor="middle" font-size="12" font-weight="400">CloudWatch/OTel</text>
+  </g>
+  <text x="1040" y="470" text-anchor="middle" font-size="14" fill="#7C4A03">All four come wired together, out of the box</text>
+
+  <!-- LEFT: LangChain -> scattered boxes -->
+  <rect x="280" y="140" width="160" height="70" rx="12" fill="#3730A3"/>
+  <text x="360" y="182" text-anchor="middle" fill="#fff" font-size="18" font-weight="700">LangChain App</text>
+
+  <g font-size="14" font-weight="600" fill="#3730A3">
+    <line x1="330" y1="210" x2="200" y2="270" stroke="#818CF8" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#arrowI)"/>
+    <rect x="120" y="272" width="160" height="56" rx="10" fill="#EEF0FF" stroke="#4F46E5" stroke-width="2"/>
+    <text x="200" y="298" text-anchor="middle">LangSmith</text>
+    <text x="200" y="316" text-anchor="middle" font-size="11" font-weight="400">tracing (separate product)</text>
+
+    <line x1="290" y1="210" x2="140" y2="380" stroke="#818CF8" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#arrowI)"/>
+    <rect x="60" y="382" width="160" height="56" rx="10" fill="#EEF0FF" stroke="#4F46E5" stroke-width="2"/>
+    <text x="140" y="408" text-anchor="middle">Vector DB</text>
+    <text x="140" y="426" text-anchor="middle" font-size="11" font-weight="400">you provision it</text>
+
+    <line x1="360" y1="210" x2="360" y2="380" stroke="#818CF8" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#arrowI)"/>
+    <rect x="280" y="382" width="160" height="56" rx="10" fill="#EEF0FF" stroke="#4F46E5" stroke-width="2"/>
+    <text x="360" y="408" text-anchor="middle">Lambda / ECS</text>
+    <text x="360" y="426" text-anchor="middle" font-size="11" font-weight="400">hosting, your choice</text>
+
+    <line x1="410" y1="210" x2="560" y2="270" stroke="#818CF8" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#arrowI)"/>
+    <rect x="480" y="272" width="160" height="56" rx="10" fill="#EEF0FF" stroke="#4F46E5" stroke-width="2"/>
+    <text x="560" y="298" text-anchor="middle">IAM policies</text>
+    <text x="560" y="316" text-anchor="middle" font-size="11" font-weight="400">hand-written</text>
+
+    <line x1="440" y1="210" x2="600" y2="400" stroke="#818CF8" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#arrowI)"/>
+    <rect x="520" y="402" width="160" height="56" rx="10" fill="#EEF0FF" stroke="#4F46E5" stroke-width="2"/>
+    <text x="600" y="428" text-anchor="middle">Memory store</text>
+    <text x="600" y="446" text-anchor="middle" font-size="11" font-weight="400">Redis/DB, your pick</text>
+  </g>
+  <text x="360" y="500" text-anchor="middle" font-size="14" fill="#4338CA">Flexible — but every piece is a decision you own</text>
+
+  <!-- bottom note -->
+  <rect x="40" y="560" width="1320" height="120" rx="14" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="1.5"/>
+  <text x="700" y="600" text-anchor="middle" font-size="16" fill="#374151" font-weight="700">Cost follows the same logic</text>
+  <text x="700" y="628" text-anchor="middle" font-size="14" fill="#4B5563">Strands: fewer moving pieces to pay for separately, more tied to AWS.</text>
+  <text x="700" y="650" text-anchor="middle" font-size="14" fill="#4B5563">LangChain: optimize spend across providers, at the cost of owning more infrastructure.</text>
+
+  <defs>
+    <marker id="arrowO" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#FF9900"/>
+    </marker>
+    <marker id="arrowI" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#818CF8"/>
+    </marker>
+  </defs>
+</svg>

@@ -10,8 +10,9 @@ Same two agents, built twice — once in each framework — so you can run them 
 
 ```
 strands/
-  weather_agent.py       # minimal single-tool agent
-  multi_tool_agent.py    # weather + currency conversion
+  weather_agent.py         # minimal single-tool agent (Amazon Bedrock)
+  weather_agent_ollama.py  # same agent, running on Ollama (free, local)
+  multi_tool_agent.py      # weather + currency conversion
 langchain/
   weather_agent.py       # same task, LangChain version
   multi_tool_agent.py    # same task, LangChain version
@@ -23,6 +24,7 @@ requirements.txt
 | File | What it shows |
 |---|---|
 | `strands/weather_agent.py` | The smallest possible Strands agent — a model, one tool, no graph. |
+| `strands/weather_agent_ollama.py` | The same agent, pointed at a local Ollama model instead of Bedrock — no AWS account needed. |
 | `strands/multi_tool_agent.py` | The model deciding on its own which of two tools to call, and in what order. |
 | `langchain/weather_agent.py` | The same single-tool task, with the prompt template + executor LangChain expects you to assemble. |
 | `langchain/multi_tool_agent.py` | Same two-tool task as the Strands version — compare the boilerplate side by side. |
@@ -48,14 +50,23 @@ cp .env.example .env
 ```
 
 - **LangChain** examples need `OPENAI_API_KEY` set in `.env`.
-- **Strands** examples call Amazon Bedrock through your default AWS credential chain (`aws configure` or AWS SSO). You only need to touch `.env` if you want to override the profile or region (`AWS_PROFILE`, `AWS_REGION`) instead of using your default AWS setup.
+- **Strands** examples (`weather_agent.py`, `multi_tool_agent.py`) call Amazon Bedrock through your default AWS credential chain (`aws configure` or AWS SSO). You only need to touch `.env` if you want to override the profile or region (`AWS_PROFILE`, `AWS_REGION`) instead of using your default AWS setup.
+- **`strands/weather_agent_ollama.py`** needs no cloud account — it runs against a local [Ollama](https://ollama.ai) server instead:
+  ```bash
+  ollama pull llama3.1
+  ollama serve
+  ```
+  Override `OLLAMA_HOST` / `OLLAMA_MODEL_ID` in `.env` if your server or model differs from the defaults.
 
 ### Run
 
 ```bash
-# Strands
+# Strands (Bedrock)
 python strands/weather_agent.py
 python strands/multi_tool_agent.py
+
+# Strands (Ollama, free/local — needs `ollama serve` running)
+python strands/weather_agent_ollama.py
 
 # LangChain
 python langchain/weather_agent.py

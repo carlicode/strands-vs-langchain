@@ -2,10 +2,14 @@
 Minimal Strands Agents example — weather tool, running on Ollama (free, local).
 Install: pip install 'strands-agents[ollama]' python-dotenv
 Requires Ollama running locally: https://ollama.ai
-    ollama pull llama3.1
+    ollama pull qwen2.5:7b-instruct
     ollama serve
 Optional: set OLLAMA_HOST and OLLAMA_MODEL_ID in a .env file (see .env.example)
 to point at a different server or model.
+
+Note: smaller/local models can ignore tool output and hallucinate instead of
+using it directly — qwen2.5:7b-instruct with temperature=0 is more reliable
+at this than llama3.1 for tool-calling tasks like this one.
 """
 import os
 
@@ -24,7 +28,8 @@ def get_weather(city: str) -> str:
 
 ollama_model = OllamaModel(
     host=os.getenv("OLLAMA_HOST", "http://localhost:11434"),
-    model_id=os.getenv("OLLAMA_MODEL_ID", "llama3.1"),
+    model_id=os.getenv("OLLAMA_MODEL_ID", "qwen2.5:7b-instruct"),
+    temperature=0,
 )
 
 agent = Agent(model=ollama_model, tools=[get_weather])

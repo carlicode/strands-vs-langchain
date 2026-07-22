@@ -53,10 +53,10 @@ cp .env.example .env
 - **Strands** examples (`weather_agent.py`, `multi_tool_agent.py`) call Amazon Bedrock through your default AWS credential chain (`aws configure` or AWS SSO). You only need to touch `.env` if you want to override the profile or region (`AWS_PROFILE`, `AWS_REGION`) instead of using your default AWS setup.
 - **`strands/weather_agent_ollama.py`** needs no cloud account — it runs against a local [Ollama](https://ollama.ai) server instead:
   ```bash
-  ollama pull llama3.1
+  ollama pull qwen2.5:7b-instruct
   ollama serve
   ```
-  Override `OLLAMA_HOST` / `OLLAMA_MODEL_ID` in `.env` if your server or model differs from the defaults.
+  Override `OLLAMA_HOST` / `OLLAMA_MODEL_ID` in `.env` if your server or model differs from the defaults. Note: smaller local models (e.g. `llama3.1`) can ignore the tool's output and hallucinate instead of using it — `qwen2.5:7b-instruct` is more reliable for this example.
 
 ### Run
 

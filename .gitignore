@@ -13,3 +13,6 @@ venv/
 /3_terminal.png
 /4_deployment.png
 /5_decision_tree.png
+
+# nested clone of the AWS workshop repo, not part of this project
+/sample-strands-agents-hands-on-workshop/
